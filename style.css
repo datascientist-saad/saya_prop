@@ -6,10 +6,11 @@ font-family:Segoe UI;
 }
 
 body{
-background:radial-gradient(circle,#ffb6c1,#ff1493);
+background:linear-gradient(135deg,#ffe4e9,#ffb6c1,#ffc0cb);
 min-height:100vh;
 display:flex;
 justify-content:center;
+background-atachment:fixed;
 align-items:center;
 overflow:hidden;
 padding:15px;
