@@ -1,53 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-
-<!-- IMPORTANT MOBILE META -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-<title>Will You Be Mine?</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Will You Be Mine?</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <!-- Optional music (replace music.mp3 with a real file) -->
+  <audio id="bgm" autoplay loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
 
-<audio autoplay loop>
-<source src="music.mp3" type="audio/mpeg">
-</audio>
+  <!-- Soft bokeh + hearts layer -->
+  <div class="bg-bokeh" aria-hidden="true"></div>
+  <div class="hearts" aria-hidden="true"></div>
 
-<div class="hearts"></div>
+  <main class="wrap">
+    <header class="hero">
+      <div class="badge">🌹 Rose Day • Propose Day</div>
+      <h1 class="type">Happy Propose Day, My Love ✨</h1>
+      <p class="sub">Tap the picture — I have something to ask you 💗</p>
+    </header>
 
-<div class="container">
+    <!-- Glass card -->
+    <section class="glass-card">
+      <button class="card" id="cardBtn" type="button" aria-label="Open proposal card">
+        <div class="card-inner" id="cardInner">
+          <div class="card-front">
+            <div class="photo-wrap">
+              <img src="proposal.jpg" alt="proposal" />
+            </div>
+            <p class="hint">Tap the photo 💞</p>
+          </div>
 
-<h1 class="type">Happy Propose Day My Love 💖</h1>
+          <div class="card-back">
+            <h2>Will you be mine?? 💍</h2>
+            <p class="tiny">Tap to open the premium popup ✨</p>
+          </div>
+        </div>
+      </button>
+    </section>
+  </main>
 
-<div class="card" ontouchstart="flipCard()" onclick="flipCard()">
-<div class="card-inner" id="cardInner">
+  <!-- Premium glass popup -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
 
-<div class="card-front">
-<img src="proposal.jpg">
-<p>Tap the photo 💕</p>
-</div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close" id="closeBtn" aria-label="Close">✕</button>
 
-<div class="card-back">
-<h2>Will you be mine?? 💍</h2>
+      <div class="modal-head">
+        <div class="sparkle">✨</div>
+        <h2 id="modalTitle">Will you be mine?? 💍</h2>
+        <p class="modal-sub">Say yes and make my world complete ❤️</p>
+      </div>
 
-<div class="buttons">
-<button onclick="yes()">YES 😍</button>
-<button onclick="yes()">FOREVER ❤️</button>
-</div>
+      <div class="modal-actions">
+        <button class="btn primary" id="yesBtn" type="button">YES 😍</button>
+        <button class="btn ghost" id="foreverBtn" type="button">FOREVER ❤️</button>
+      </div>
 
-<p id="message"></p>
-</div>
+      <p class="modal-msg" id="message"></p>
+    </div>
+  </div>
 
-</div>
-</div>
+  <canvas id="confetti"></canvas>
 
-</div>
-
-<canvas id="confetti"></canvas>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
